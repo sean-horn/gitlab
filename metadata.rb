@@ -6,6 +6,6 @@ description      'Installs/Configures gitlab'
 long_description 'Installs/Configures gitlab'
 version          '0.1.0'
 
-%w{ sshd postfix }.each do |cb|
+%w{ sshd postfix yum apt }.each do |cb|
   depends cb
 end
