@@ -10,6 +10,6 @@ end
 default['gitlab']['external_url'] = "https://gitlab.mycompany.com"
 default['gitlab']['omnibus']['in_repo'] = false
 
-default['gitlab']['organization'] = 'MyCompany'
-default['gitlab']['organizational_unit'] = 'Ops'
-default['gitlab']['country'] = 'UK'
+default['gitlab']['ssl']['organization'] = 'MyCompany'
+default['gitlab']['ssl']['organizational_unit'] = 'Ops'
+default['gitlab']['ssl']['country'] = 'UK'
