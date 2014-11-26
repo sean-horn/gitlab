@@ -7,5 +7,5 @@ when 'rhel'
   default['gitlab']['omnibus']['checksum'] = "e33a540089f9489b8af69c6e55f3e656"
 end
 
-
 default['gitlab']['external_url'] = "http://gitlab.mycompany.com"
+default['gitlab']['omnibus']['in_repo'] = false
