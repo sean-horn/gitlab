@@ -9,3 +9,7 @@ end
 
 default['gitlab']['external_url'] = "https://gitlab.mycompany.com"
 default['gitlab']['omnibus']['in_repo'] = false
+
+default['gitlab']['organization'] = 'MyCompany'
+default['gitlab']['organizational_unit'] = 'Ops'
+default['gitlab']['country'] = 'UK'

@@ -19,7 +19,7 @@ ssl_name = URI(node['gitlab']['external_url']).host
 
 openssl_x509 "/etc/gitlab/ssl/#{ssl_name}.crt" do
   common_name ssl_name
-  org 'Capital One'
-  org_unit 'UK IT'
-  country 'UK'
+  org node['gitlab']['ssl']['organization']
+  org_unit node['gitlab']['ssl']['organizational_unit']
+  country node['gitlab']['ssl']['country']
 end
