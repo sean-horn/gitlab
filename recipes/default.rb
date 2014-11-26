@@ -2,27 +2,29 @@
 # Cookbook Name:: gitlab
 # Recipe:: default
 #
-# Copyright (C) 2014 YOUR_NAME
+# Copyright (C) 2014, Chef Software, Inc <legal@getchef.com>
 #
 # All rights reserved - Do Not Redistribute
 #
 
+require 'uri'
+
 include_recipe 'sshd'
 include_recipe 'postfix'
-
-external_url = "http://#{node['fqdn']}"
+include_recipe 'gitlab::_openssl' if URI(node['gitlab']['external_url']).scheme == 'https'
 
 execute "gitlab-ctl reconfigure" do
   action :nothing
 end
 
 unless node['gitlab']['omnibus']['in_repo']
-  download_url = "https://downloads-packages.s3.amazonaws.com/centos-7.0.1406/gitlab-7.4.3_omnibus.1-1.el7.x86_64.rpm"
-  filename = File.basename(node['gitlab']['omnibus']['url'])
-  chksm = 'e33a540089f9489b8af69c6e55f3e656'
+  distro = "#{node['platform']}-#{node['platform_version'].split('.').first}"
+  download_url = node['gitlab']['omnibus']['url'][distro]
+  filename = File.basename(node['gitlab']['omnibus']['url'][distro])
+  chksm = node['gitlab']['omnibus']['checksum']['distro']
   
   remote_file "#{Chef::Config['file_cache_path']}/#{filename}" do
-    source node['gitlab']['omnibus']['url']
+    source download_url
     mode '0644'
     checksum chksm
   end
