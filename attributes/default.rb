@@ -13,3 +13,4 @@ default['gitlab']['omnibus']['in_repo'] = false
 default['gitlab']['ssl']['organization'] = 'MyCompany'
 default['gitlab']['ssl']['organizational_unit'] = 'Ops'
 default['gitlab']['ssl']['country'] = 'UK'
+default['gitlab']['ssl']['http_redirect'] = true
