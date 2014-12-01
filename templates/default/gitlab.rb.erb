@@ -1,2 +1,5 @@
 # Check and change the external_url to the address your users will type in their browser
 external_url '<%= @external_url %>'
+<% if node['gitlab']['ssl']['http_redirect'] -%>
+nginx['redirect_http_to_https'] = true
+<% end -%>
