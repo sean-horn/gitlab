@@ -19,8 +19,8 @@ end
 
 unless node['gitlab']['omnibus']['in_repo']
   distro = "#{node['platform']}-#{node['platform_version'].split('.').first}"
-  download_url = node['gitlab']['omnibus']['url'][distro]
-  filename = File.basename(node['gitlab']['omnibus']['url'][distro])
+  download_url = node['gitlab']['omnibus']['url']['distro']
+  filename = File.basename(node['gitlab']['omnibus']['url']['distro'])
   chksm = node['gitlab']['omnibus']['checksum']['distro']
   
   remote_file "#{Chef::Config['file_cache_path']}/#{filename}" do
