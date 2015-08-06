@@ -13,7 +13,7 @@ include_recipe 'sshd'
 include_recipe 'postfix'
 include_recipe 'gitlab::_openssl' if URI(node['gitlab']['external_url']).scheme == 'https'
 
-execute "gitlab-ctl reconfigure" do
+execute 'gitlab-ctl reconfigure' do
   action :nothing
 end
 
