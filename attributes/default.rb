@@ -11,7 +11,7 @@ when 'rhel'
     'https://downloads-packages.s3.amazonaws.com/centos-6.6/\
     gitlab-7.5.1_omnibus.5.2.0.ci-1.el6.x86_64.rpm' }
   default['gitlab']['omnibus']['checksum'] = { 'centos-7' => \
-    'e33a540089f9489b8af69c6e55f3e656', 'centos-6' =>\
+    'e33a540089f9489b8af69c6e55f3e656', 'centos-6' => \
     'bbf7761126d59861b3983b6820550690' }
 end
 
