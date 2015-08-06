@@ -17,10 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.omnibus.chef_version = :latest
 
   # Every Vagrant virtual environment requires a box to build off of.
-  # If this value is a shorthand to a box in Vagrant Cloud then 
+  # If this value is a shorthand to a box in Vagrant Cloud then
   # config.vm.box_url doesn't need to be specified.
   config.vm.box = 'chef/ubuntu-14.04'
-
 
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
@@ -56,10 +55,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The path to the Berksfile to use with Vagrant Berkshelf
   # config.berkshelf.berksfile_path = './Berksfile'
 
-  # Enabling the Berkshelf plugin. To enable this globally, add this configuration
-  # option to your ~/.vagrant.d/Vagrantfile file
   config.berkshelf.enabled = true
-
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
@@ -71,7 +67,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-        'recipe[gitlab::default]'
+      'recipe[gitlab::default]'
     ]
   end
 end
