@@ -22,7 +22,7 @@ unless node['gitlab']['omnibus']['in_repo']
   download_url = node['gitlab']['omnibus']['url']['distro']
   filename = File.basename(node['gitlab']['omnibus']['url']['distro'])
   chksm = node['gitlab']['omnibus']['checksum']['distro']
-  
+
   remote_file "#{Chef::Config['file_cache_path']}/#{filename}" do
     source download_url
     mode '0644'
