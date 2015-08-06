@@ -11,14 +11,14 @@ require 'uri'
 
 include_recipe 'sshd'
 include_recipe 'postfix'
-include_recipe 'gitlab::_openssl' if URI(node['gitlab']['external_url']).scheme == 'https'
+include_recipe 'gitlab::_openssl'\
+if URI(node['gitlab']['external_url']).scheme == 'https'
 
 execute 'gitlab-ctl reconfigure' do
   action :nothing
 end
 
 unless node['gitlab']['omnibus']['in_repo']
-  distro = "#{node['platform']}-#{node['platform_version'].split('.').first}"
   download_url = node['gitlab']['omnibus']['url']['distro']
   filename = File.basename(node['gitlab']['omnibus']['url']['distro'])
   chksm = node['gitlab']['omnibus']['checksum']['distro']
