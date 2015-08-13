@@ -10,4 +10,3 @@ version '0.2.3'
   depends cb
 end
 
-depends "test1"
