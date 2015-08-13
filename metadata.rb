@@ -9,3 +9,5 @@ version '0.2.3'
 %w( sshd postfix yum apt openssl ).each do |cb|
   depends cb
 end
+
+depends test1
